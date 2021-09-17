@@ -7,14 +7,18 @@ import { UserComponent } from './user/user.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    SignupComponent
+    SignupComponent,
+    UserProfileComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

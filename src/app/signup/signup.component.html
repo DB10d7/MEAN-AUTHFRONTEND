@@ -8,13 +8,13 @@
     required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
     <div *ngIf="signUpForm.submitted && email.errors">
       <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
-      <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+      <label *ngIf="email.errors?.pattern" class="validation-message">Invalid email address.</label>
     </div>
     <input type="password" #password="ngModel" [(ngModel)]="selectedUser.password" name="password" placeholder="Password"
     minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
     <div *ngIf="signUpForm.submitted && password.errors">
       <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
-      <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
+      <label *ngIf="password.errors?.minlength" class="validation-message">Enter atleast 4 characters.</label>
     </div>
     <input type="submit" value="Sign Up">
 </form>
